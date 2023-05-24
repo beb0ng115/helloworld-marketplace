@@ -1,4 +1,4 @@
-require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 351:
@@ -2705,6 +2705,14 @@ module.exports = wait;
 
 /***/ }),
 
+/***/ 716:
+/***/ ((module) => {
+
+module.exports = eval("require")("@actions/github");
+
+
+/***/ }),
+
 /***/ 491:
 /***/ ((module) => {
 
@@ -2836,19 +2844,29 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(186);
 const wait = __nccwpck_require__(258);
+const github = __nccwpck_require__(716)
+
 
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    core.info(`Waiting ${ms} milliseconds ...`);
+    const name = core.getInput('who-to-greet');
+    console.log(`Hello ${name}`);
 
-    core.debug((new Date()).toTimeString()); // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-    await wait(parseInt(ms));
-    core.info((new Date()).toTimeString());
+    const time = new Date();
+    core.setOutput("time", time.toTimeString());
 
-    core.setOutput('time', new Date().toTimeString());
+    var files = fs.readdirSync('/');
+    
+
+    console.log(JSON.stringify(files, null, '\t'));
+
+
+    core.setOutput("files : ", files.toString());
+
+
+    console.log(JSON.stringify(github, null, '\t'));
   } catch (error) {
     core.setFailed(error.message);
   }
@@ -2861,4 +2879,3 @@ run();
 module.exports = __webpack_exports__;
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
