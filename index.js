@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const wait = require('./wait');
 const github = require("@actions/github")
+var fs = require('fs');
 
 
 
