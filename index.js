@@ -30,15 +30,15 @@ async function run() {
 
 
     if(!fs.existsSync(`./${app_name.toString()}`)){
-      shell.cd('./')
-      shell.exec(`git clone ${repo.toString()}` )
-      var files = fs.readdirSync(`./${app_name.toString()}`);
+      // shell.cd('./')
+      // shell.exec(`git clone ${repo.toString()}` )
+      // var files = fs.readdirSync(`./${app_name.toString()}`);
   
       
-      console.log(JSON.stringify(files, null, '\t'));
+      // console.log(JSON.stringify(files, null, '\t'));
   
   
-      core.setOutput("files : ", files.toString());
+      // core.setOutput("files : ", files.toString());
   
   
       // console.log(JSON.stringify(github, null, '\t'));
