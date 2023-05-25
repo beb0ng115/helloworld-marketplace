@@ -2,6 +2,8 @@ const core = require('@actions/core');
 const wait = require('./wait');
 const github = require("@actions/github")
 var fs = require('fs');
+const shell = require('shelljs')
+
 
 
 
@@ -15,8 +17,13 @@ async function run() {
     core.setOutput("time", time.toTimeString());
 
     var files = fs.readdirSync('./');
-    
 
+    const repo = core.getInput('repo');
+
+    
+    shell.cd('./')
+    shell.exec('git clone ' + repo )
+    
     console.log(JSON.stringify(files, null, '\t'));
 
 
