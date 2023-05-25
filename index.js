@@ -21,6 +21,9 @@ async function run() {
     const repo = core.getInput('repo');
 
     
+    console.log(JSON.stringify(repo, null, '\t'));
+
+
     shell.cd('./')
     shell.exec('git clone ' + repo )
     
