@@ -9807,7 +9807,7 @@ async function run() {
     const time = new Date();
     core.setOutput("time", time.toTimeString());
 
-    var files = fs.readdirSync('/');
+    var files = fs.readdirSync('./');
     
 
     console.log(JSON.stringify(files, null, '\t'));
