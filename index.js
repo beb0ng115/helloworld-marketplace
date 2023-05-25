@@ -4,21 +4,24 @@ const github = require("@actions/github")
 var fs = require('fs');
 const shell = require('shelljs')
 
+const process = require('process');
 
 
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const name = core.getInput('who-to-greet');
+    var name = core.getInput('who-to-greet') ? core.getInput('who-to-greet') : process.env['who-to-greet'];
+
+    var repo = core.getInput('repo') ? core.getInput('repo')
+    : process.env['repo'];
+    var app_name = core.getInput('app-name') ? core.getInput('app-name') : process.env['app-name'];
+
     console.log(`Hello ${name}`);
 
     const time = new Date();
     core.setOutput("time", time.toTimeString());
 
-
-    const repo = core.getInput('repo');
-    const app_name = core.getInput('app-name');
 
 
     
