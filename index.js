@@ -28,20 +28,34 @@ async function run() {
     console.log(JSON.stringify(repo, null, '\t'));
 
 
-    shell.cd('./')
-    shell.exec(`git clone ${repo.toString()}` )
 
-    core.setOutput("repo", repo.toString());
-    var files = fs.readdirSync(`./${app_name.toString()}`);
+    if(!fs.existsSync(`./${app_name.toString()}`)){
+      shell.cd('./')
+      shell.exec(`git clone ${repo.toString()}` )
+      var files = fs.readdirSync(`./${app_name.toString()}`);
+  
+      
+      console.log(JSON.stringify(files, null, '\t'));
+  
+  
+      core.setOutput("files : ", files.toString());
+  
+  
+      // console.log(JSON.stringify(github, null, '\t'));
+    }else{
+      shell.cd(`./${app_name.toString()}`)
+      shell.exec(`git checkout main` )
+      var file_s = fs.readdirSync('./');
+  
+      
+      console.log(JSON.stringify(file_s, null, '\t'));
+  
+  
+      core.setOutput("files : ", file_s.toString());
+
+    }
 
     
-    console.log(JSON.stringify(files, null, '\t'));
-
-
-    core.setOutput("files : ", files.toString());
-
-
-    console.log(JSON.stringify(github, null, '\t'));
   } catch (error) {
     core.setFailed(error.message);
   }
