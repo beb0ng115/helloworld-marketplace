@@ -13,9 +13,9 @@ async function run() {
   try {
     var name = core.getInput('who-to-greet') ? core.getInput('who-to-greet') : process.env['who-to-greet'];
 
-    // var repo = core.getInput('repo') ? core.getInput('repo')
-    // : process.env['repo'];
-    // var app_name = core.getInput('app-name') ? core.getInput('app-name') : process.env['app-name'];
+    var repo = core.getInput('repo') ? core.getInput('repo')
+    : process.env['repo'];
+    var app_name = core.getInput('app-name') ? core.getInput('app-name') : process.env['app-name'];
 
     // console.log(`Hello ${name}`);
 
