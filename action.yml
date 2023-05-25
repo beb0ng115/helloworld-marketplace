@@ -9,7 +9,11 @@ inputs:
     description: 'repo'
     required: true
     default: https://github.com/gabyshev/testapp
-
+  apps:
+    description: 'apps'
+    required: true
+    default: testapp
+    
 outputs:
   time: 
     description: 'the greeting time'

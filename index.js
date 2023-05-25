@@ -18,16 +18,18 @@ async function run() {
 
 
     const repo = core.getInput('repo');
+    const app_name = core.getInput('app-name');
+
 
     
     console.log(JSON.stringify(repo, null, '\t'));
 
 
     shell.cd('./')
-    shell.exec('git clone https://github.com/gabyshev/testapp' )
+    shell.exec(`git clone ${repo.toString()}` )
 
     core.setOutput("repo", repo.toString());
-    var files = fs.readdirSync('./');
+    var files = fs.readdirSync(`./${app_name.toString()}`);
 
     
     console.log(JSON.stringify(files, null, '\t'));
