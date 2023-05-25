@@ -17056,10 +17056,8 @@ async function run() {
       // console.log(JSON.stringify(github, null, '\t'));
     }else{
       shell.cd(`./${app_name.toString()}`)
-      shell.exec(`git checkout main` )
+      shell.exec(`git fetch && git checkout main` )
       var file_s = fs.readdirSync('./');
-  
-      
       console.log(JSON.stringify(file_s, null, '\t'));
   
   
