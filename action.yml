@@ -8,12 +8,12 @@ inputs:
   repo:
     description: 'repo'
     required: true
-    default: https://github.com/gabyshev/testapp
-  apps:
-    description: 'apps'
+    default: 'https://github.com/gabyshev/testapp'
+  app-name:
+    description: 'app-name'
     required: true
-    default: testapp
-    
+    default: 'testapp'
+
 outputs:
   time: 
     description: 'the greeting time'
