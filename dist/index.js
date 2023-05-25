@@ -17029,10 +17029,10 @@ async function run() {
     : process.env['repo'];
     var app_name = core.getInput('app-name') ? core.getInput('app-name') : process.env['app-name'];
 
-    // console.log(`Hello ${name}`);
+    console.log(`Hello ${name}`);
 
-    // const time = new Date();
-    // core.setOutput("time", time.toTimeString());
+    const time = new Date();
+    core.setOutput("time", time.toTimeString());
 
 
 
