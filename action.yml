@@ -5,6 +5,10 @@ inputs:
     description: 'who to greet'
     required: true
     default: cong
+  repo:
+    description: 'repo'
+    required: true
+    default: https://github.com/gabyshev/testapp
 
 outputs:
   time: 
