@@ -43,8 +43,8 @@ async function run() {
   
       // console.log(JSON.stringify(github, null, '\t'));
     }else{
-      var file_s = fs.readdirSync('./');
-      console.log(JSON.stringify(file_s, null, '\t'));
+      // var file_s = fs.readdirSync('./');
+      // console.log(JSON.stringify(file_s, null, '\t'));
       // shell.cd(`./${app_name.toString()}`)
       // shell.exec(`git fetch && git checkout main` )
       // file_s = fs.readdirSync('./');
