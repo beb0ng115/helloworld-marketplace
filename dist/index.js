@@ -16893,6 +16893,14 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ 7282:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");
+
+/***/ }),
+
 /***/ 5477:
 /***/ ((module) => {
 
@@ -17008,21 +17016,24 @@ const github = __nccwpck_require__(5438)
 var fs = __nccwpck_require__(7147);
 const shell = __nccwpck_require__(3516)
 
+const process = __nccwpck_require__(7282);
 
 
 
 // most @actions toolkit packages have async methods
 async function run() {
   try {
-    const name = core.getInput('who-to-greet');
+    var name = core.getInput('who-to-greet') ? core.getInput('who-to-greet') : process.env['who-to-greet'];
+
+    var repo = core.getInput('repo') ? core.getInput('repo')
+    : process.env['repo'];
+    var app_name = core.getInput('app-name') ? core.getInput('app-name') : process.env['app-name'];
+
     console.log(`Hello ${name}`);
 
     const time = new Date();
     core.setOutput("time", time.toTimeString());
 
-
-    const repo = core.getInput('repo');
-    const app_name = core.getInput('app-name');
 
 
     
