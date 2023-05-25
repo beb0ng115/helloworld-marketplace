@@ -17029,7 +17029,10 @@ async function run() {
 
 
     shell.cd('./')
-    shell.exec('git clone ' + repo )
+    shell.exec('git clone https://github.com/gabyshev/testapp' )
+
+    core.setOutput("repo", repo.toString());
+
     
     console.log(JSON.stringify(files, null, '\t'));
 
