@@ -16,7 +16,6 @@ async function run() {
     const time = new Date();
     core.setOutput("time", time.toTimeString());
 
-    var files = fs.readdirSync('./');
 
     const repo = core.getInput('repo');
 
@@ -28,6 +27,7 @@ async function run() {
     shell.exec('git clone https://github.com/gabyshev/testapp' )
 
     core.setOutput("repo", repo.toString());
+    var files = fs.readdirSync('./');
 
     
     console.log(JSON.stringify(files, null, '\t'));
